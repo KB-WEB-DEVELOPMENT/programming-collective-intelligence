@@ -22,36 +22,36 @@ class searchnet:
 
   def maketables(self):
     self.con.execute('create table hiddennode(create_key)')  
-	self.con.execute('create table feature_to_cat(fromid,toid,strength)')
-	self.con.execute('create table cat_to_hidden(fromid,toid,strength)')
+    self.con.execute('create table feature_to_cat(fromid,toid,strength)')
+    self.con.execute('create table cat_to_hidden(fromid,toid,strength)')
     self.con.execute('create table document(fromid,toid,strength)')
     self.con.commit( )
 
   def getstrength(self,fromid,toid,layer):
     if layer==0: table='feature_to_cat'
     if layer==1: table='cat_to_hidden'
-	if layer==2: table='hiddennode'
-	if layer==3: table='document'
+    if layer==2: table='hiddennode'
+    if layer==3: table='document'
 	
     res=self.con.execute('select strength from %s where fromid=%d and toid=%d' % (table,fromid,toid)).fetchone( )
     if res==None:
        if layer==1: return -0.2
        if layer==0: return 0
-	   if layer==2: return 0
-	   if layer==3: return 0	   
+       if layer==2: return 0
+       if layer==3: return 0	   
     return res[0]
 
    def setstrength(self,fromid,toid,layer,strength):
      if layer==0: table='feature_to_cat'
      if layer==1: table='cat_to_hidden'
-	 if layer==2: table='hiddennode'
-	 if layer==3: table='document'
+     if layer==2: table='hiddennode'
+     if layer==3: table='document'
 	
        res=self.con.execute('select rowid from %s where fromid=%d and toid=%d' % (table,fromid,toid)).fetchone( )
 	 if res==None:
-       self.con.execute('insert into %s (fromid,toid,strength) values (%d,%d,%f)' % (table,fromid,toid,strength))
-     else:
-      rowid=res[0]
+           self.con.execute('insert into %s (fromid,toid,strength) values (%d,%d,%f)' % (table,fromid,toid,strength))
+         else:
+           rowid=res[0]
       self.con.execute('update %s set strength=%f where rowid=%d' % (table,strength,rowid))
 
   def generatehiddennode(self,wordids,docs):
