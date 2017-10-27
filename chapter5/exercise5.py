@@ -27,7 +27,7 @@ def printsolution(vec):
   
   for i in range(len(vec)):
     
-	x=int(vec[i])
+    x=int(vec[i])
     student=students[slots[x]]
     print prefs[i][0],student
     del slots[x]
