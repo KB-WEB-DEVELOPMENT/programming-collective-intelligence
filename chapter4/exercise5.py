@@ -15,14 +15,14 @@ def percentFrenquencyscore(self,rows):
 	   except:
 	     print "Could not open %s" %res		 
 	   else:
-       soup=BeautifulSoup(c.read())
-	   # refer to function gettextonly(self,soup) on p.60
-	   text=gettextonly(self,soup)
-	   # refer to function separatewords(self,text) on p.61
-	   wordslist=separatewords(self,text)
-	   wordscount=len(wordslist)
-	   percentscore=counts/wordscount
-	   #refer to function normalizescores(self,scores,smallisBetter=0) on p.66 - use big is better here
-	   return self.normalizescores(percentscore)
+             soup=BeautifulSoup(c.read())
+	     # refer to function gettextonly(self,soup) on p.60
+	     text=gettextonly(self,soup)
+	     # refer to function separatewords(self,text) on p.61
+	     wordslist=separatewords(self,text)
+	     wordscount=len(wordslist)
+	     percentscore=counts/wordscount
+	     #refer to function normalizescores(self,scores,smallisBetter=0) on p.66 - use big is better here
+	    return self.normalizescores(percentscore)
 	   
-    return false	
+       return false	
