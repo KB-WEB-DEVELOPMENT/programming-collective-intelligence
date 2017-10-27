@@ -55,23 +55,23 @@ def buildtree(rows,scoref=entropy):
     # Now try dividing the rows up for each value
     # in this column
     for value in column_values.keys( ):
-     (set1,set2,set3)=divideset(rows,col,value)
+      (set1,set2,set3)=divideset(rows,col,value)
 
-	 # Information gain
+     # Information gain
      p1=float(len(set1))/len(rows)
-	 p2=float(len(set2))/len(rows)
-	 p3=float(len(set3))/len(rows)
+     p2=float(len(set2))/len(rows)
+     p3=float(len(set3))/len(rows)
      gain=current_score-p1*scoref(set1)-p2*scoref(set2)-p3*scoref(set3)
      if gain>best_gain and len(set1)>0 and len(set2)>0 and len(set3)>0:
         best_gain=gain
         best_criteria=(col,value)
         best_sets=(set1,set2,set3)
-   # Create the subbranches
-   if best_gain>0:
-      firstBranch=buildtree(best_sets[0])
-      secondBranch=buildtree(best_sets[1])
-	  thirdBranch=buildtree(best_sets[2])
-      return decisionnode(col=best_criteria[0],value=best_criteria[1],branch1=firstBranch,branch2=secondBranch,branch3=thirdBranch)
+     # Create the subbranches
+     if best_gain>0:
+       firstBranch=buildtree(best_sets[0])
+       secondBranch=buildtree(best_sets[1])
+       thirdBranch=buildtree(best_sets[2])
+       return decisionnode(col=best_criteria[0],value=best_criteria[1],branch1=firstBranch,branch2=secondBranch,branch3=thirdBranch)
     
-	else:
+     else:
       return decisionnode(results=uniquecounts(rows))
