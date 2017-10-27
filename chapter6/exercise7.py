@@ -121,13 +121,13 @@ class searchnet:
 
     def backPropagate(self, targets, N=0.5):
       
-	  # calculate errors for output
+      # calculate errors for output
       output_deltas = [0.0] * len(self.docids)
       for k in range(len(self.docids)):
         error = targets[k]-self.ao[k]
         output_deltas[k] = dtanh(self.ao[k]) * error
       
-	  # calculate errors for hidden layer
+      # calculate errors for hidden layer
       hidden_deltas = [0.0] * len(self.hiddenids)
       for j in range(len(self.hiddenids)):
         error = 0.0
@@ -135,13 +135,13 @@ class searchnet:
           error = error + output_deltas[k]*self.wo[j][k]
         hidden_deltas[j] = dtanh(self.ah[j]) * error
 
-    # update output weights
+      # update output weights
       for j in range(len(self.hiddenids)):
         for k in range(len(self.docids)):
             change = output_deltas[k]*self.ah[j]
             self.wo[j][k] = self.wo[j][k] + N*change
     
-	# update input weights
+      # update input weights
       for i in range(len(self.wordids)):
           for j in range(len(self.hiddenids)):
           change = hidden_deltas[j]*self.ai[i]
@@ -149,9 +149,8 @@ class searchnet:
 
     def trainquery(self,wordids,docids,selecteddoc):
       # generate a hidden node if necessary
-	  self.generatehiddennode(wordids,docids)
-      
-	  self.setupnetwork(wordids,docids)
+      self.generatehiddennode(wordids,docids)    
+      self.setupnetwork(wordids,docids)
       self.feedforward( )
       targets=[0.0]*len(docids)
       targets[docsids.index(selecteddoc)]=1.0
