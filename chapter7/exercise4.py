@@ -19,37 +19,37 @@ def buildtree(rows,scoref=entropy):
     # in this column
     for value in column_values.keys( ):
 	
-	  if value=None: value="MISSING DATA"	
-     (set1,set2)=divideset(rows,col,value)
+       if value=None: value="MISSING DATA"	
+    (set1,set2)=divideset(rows,col,value)
+	  
+      # Information gain
 	 
-	 # Information gain
-	 
-     p=float(len(set1))/len(rows)
-     gain=current_score-p*scoref(set1)-(1-p)*scoref(set2)
-     if gain>best_gain and len(set1)>0 and len(set2)>0:
+    p=float(len(set1))/len(rows)
+    gain=current_score-p*scoref(set1)-(1-p)*scoref(set2)
+    if gain>best_gain and len(set1)>0 and len(set2)>0:
       best_gain=gain
       best_criteria=(col,value)
-       best_sets=(set1,set2)
-	 else:	
-	   best_gain=gain
-	   best_criteria=(col,value)
-	   best_sets=(set1,set2)		
+      best_sets=(set1,set2)
+    else:	
+      best_gain=gain
+      best_criteria=(col,value)
+      best_sets=(set1,set2)		
    
-   # Create the subbranches
-   if best_gain>0:
+    # Create the subbranches
+    if best_gain>0:
 
-     trueBranch=buildtree(best_sets[0])
-     falseBranch=buildtree(best_sets[1])
+      trueBranch=buildtree(best_sets[0])
+      falseBranch=buildtree(best_sets[1])
       
-	  return decisionnode(col=best_criteria[0],value=best_criteria[1],tb=trueBranch,fb=falseBranch)
+      return decisionnode(col=best_criteria[0],value=best_criteria[1],tb=trueBranch,fb=falseBranch)
     
-   else:
+    else:
 	
-	trueBranch=buildtree(best_sets[0])
-	trueBranch+=buildtree(best_sets[1])
+      trueBranch=buildtree(best_sets[0])
+      trueBranch+=buildtree(best_sets[1])
 	  
-	falseBranch=buildtree(best_sets[0])
-	falseBranch+=buildtree(best_sets[1])
+      falseBranch=buildtree(best_sets[0])
+      falseBranch+=buildtree(best_sets[1])
 	  
   return decisionnode(col=best_criteria[0],value=best_criteria[1],tb=trueBranch,fb=falseBranch)
 	
