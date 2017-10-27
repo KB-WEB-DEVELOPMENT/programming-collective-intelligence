@@ -20,15 +20,11 @@ def showhighlightedfeatures(titles,toppatterns,patternnames,out='articles.html')
           output.write('<span style="color:yellow"' + titlewordsarray[k] + '</span>')
         else:
           output.write(titlewordsarray[k])
-        outfile.write('\n')	
-        
-        outfile.write(str(toppatterns[j][i][0]) + ' ' +str(patternnames[toppatterns[j][i][1]])+ '\n')
-        
-        outfile.write('\n')
-        
-    outfile.write('</body><html>')
-    
-    outfile.close( )
+          outfile.write('\n')	
+          outfile.write(str(toppatterns[j][i][0]) + ' ' +str(patternnames[toppatterns[j][i][1]])+ '\n')
+          outfile.write('\n')
+          outfile.write('</body><html>')
+          outfile.close( )
 	
 # question 2:
 for i in range(shape(h)[0]):
