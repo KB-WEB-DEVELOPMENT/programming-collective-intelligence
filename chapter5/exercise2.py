@@ -24,8 +24,8 @@ def annealingoptimize(domain,costf,T=10000.0,cool=0.95,step=1):
 		  # Is it better, or does it make the probability
 		  # cutoff?
 		  if (eb<ea or random.random( )<p):
-    	    vec[j]=vecb
+    	            vec[j]=vecb
 		    if vec[j]<vmin: vmin=vec[j]             		  
 		  # Decrease the temperature
-	      T=T*cool
-   return vmin 
+	          T=T*cool
+  return vmin 
