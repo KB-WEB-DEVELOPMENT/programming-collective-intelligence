@@ -20,10 +20,9 @@ def getEmailMessages:
   numMessages = len(mServer.list()[1])
  
   for mList in range(numMessages) :
-    for msg in mServer.retr(mList+1)[1]:
-       
-	   email.append(msg)
-	   
+    for msg in mServer.retr(mList+1)[1]:       
+      email.append(msg)
+
   mServer.quit()
   return email  
   
