@@ -1,7 +1,7 @@
 # EXERCISE 4: modify function buildtree(rows,scoref=entropy), p.150
 
 def buildtree(rows,scoref=entropy):
-  if len(rows)==0: return decisionnode( )
+  if len(rows)==0: return decisionnode()
   current_score=scoref(rows)
   # Set up some variables to track the best criteria
   best_gain=0.0
