@@ -20,13 +20,13 @@ def getmatchrows(self,q):
      wordid=wordrow[0]
      wordids.append(wordid)
      if tablenumber>0:
-		tablelist+=','
-		clauselist+=' and '
-		clauselist+='w%d.urlid=w%d.urlid and ' % (tablenumber-1,tablenumber)
-     fieldlist+=',w%d.location' % tablenumber
-     tablelist+='wordlocation w%d' % tablenumber
-     clauselist+='(w%d.wordid=%d or' % (tablenumber,wordid)
-	   clauselist+='w%d.wordid=%d)' % (tablenumber-1,wordid+1)
+       tablelist+=','
+       clauselist+=' and '
+       clauselist+='w%d.urlid=w%d.urlid and ' % (tablenumber-1,tablenumber)
+       fieldlist+=',w%d.location' % tablenumber
+       tablelist+='wordlocation w%d' % tablenumber
+       clauselist+='(w%d.wordid=%d or' % (tablenumber,wordid)
+       clauselist+='w%d.wordid=%d)' % (tablenumber-1,wordid+1)
      tablenumber+=1
 
 	 # Create the query from the separate parts
