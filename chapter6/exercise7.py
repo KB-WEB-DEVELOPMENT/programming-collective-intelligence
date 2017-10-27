@@ -47,11 +47,11 @@ class searchnet:
      if layer==2: table='hiddennode'
      if layer==3: table='document'
 	
-       res=self.con.execute('select rowid from %s where fromid=%d and toid=%d' % (table,fromid,toid)).fetchone( )
-	 if res==None:
-           self.con.execute('insert into %s (fromid,toid,strength) values (%d,%d,%f)' % (table,fromid,toid,strength))
-         else:
-           rowid=res[0]
+     res=self.con.execute('select rowid from %s where fromid=%d and toid=%d' % (table,fromid,toid)).fetchone( )
+     if res==None:
+        self.con.execute('insert into %s (fromid,toid,strength) values (%d,%d,%f)' % (table,fromid,toid,strength))
+     else:
+        rowid=res[0]
       self.con.execute('update %s set strength=%f where rowid=%d' % (table,strength,rowid))
 
   def generatehiddennode(self,wordids,docs):
@@ -81,15 +81,15 @@ class searchnet:
      return l1.keys( )
 
     def setupnetwork(self,wordids,docids):
-    # value lists
+      # value lists
       self.wordids=wordids
-	  self.hiddenids=self.getallhiddenids(wordids,docids)
+      self.hiddenids=self.getallhiddenids(wordids,docids)
       self.docsids=docids
-   # node outputs
-	  self.ai = [1.0]*len(self.wordids)
-	  self.ah = [1.0]*len(self.hiddenids)
+      # node outputs
+      self.ai = [1.0]*len(self.wordids)
+      self.ah = [1.0]*len(self.hiddenids)
       self.ao = [1.0]*len(self.docids)
-    # create weights matrix
+      # create weights matrix
       self.wi = [[self.getstrength(wordid,hiddenid,0)for hiddenid in self.hiddenids] for wordid in self.wordids]
       self.wo = [[self.getstrength(hiddenid,docid,1) for docid in self.docids] for hiddenid in self.hiddenids]
 
