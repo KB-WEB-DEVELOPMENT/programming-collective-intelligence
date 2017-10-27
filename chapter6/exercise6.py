@@ -5,8 +5,8 @@ import re
 longwords=[s.lower( ) for s in splitter.split(entry['summary']) if len(s)>2]
 
 for i in range(len(longwords)):
-	if len(longwords[i])>40:
-	   f['LONG WORD(S)']= longwords[i]
+    if len(longwords[i])>40:
+       f['LONG WORD(S)']= longwords[i]
        f['WORD TOO LONG']=1
 
 # https://stackoverflow.com/questions/11786997/list-how-to-find-number-of-times-an-item-appears for Python 2.7+
