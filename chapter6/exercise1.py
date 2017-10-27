@@ -6,10 +6,10 @@ class classifier(second_classifier):
   def __init__(self,getfeatures,getfeatures2,filename=None,filename2=None):
 
     self.fc={}
-	self.fc2={}
+    self.fc2={}
     self.cc={}
     self.cc2={}
-	self.getfeatures=getfeatures
+    self.getfeatures=getfeatures
     self.getfeatures=getfeatures2
 	
   def incf(self,f,cat):
@@ -23,12 +23,12 @@ class classifier(second_classifier):
     self.fc2[f2][cat2]+=1		
 		
   def incc(self,cat):
-	self.cc.setdefault(cat,0)
-	self.cc[cat]+=1
+    self.cc.setdefault(cat,0)
+     self.cc[cat]+=1
   
   def incc2(self,cat2):
-	self.cc2.setdefault(cat2,0)
-	self.cc2[cat2]+=1	
+    self.cc2.setdefault(cat2,0)
+    self.cc2[cat2]+=1	
 
   def fcount(self,f,cat):
     if f in self.fc and cat in self.fc[f]:
@@ -70,9 +70,9 @@ class classifier(second_classifier):
       self.incc(cat)
 	  
   def train2(self,item,cat2):
-	features2=self.getfeatures2(item)
+    features2=self.getfeatures2(item)
     
-	 for f2 in features2:
+    for f2 in features2:
       self.incf2(f2,cat2)
       self.incc2(cat2)
  
