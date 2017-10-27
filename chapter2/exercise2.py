@@ -41,8 +41,7 @@ def levenshteinDistance(tag1, tag2):
     return {'ratio':ratio}
 
 def topMatches(prefs,tag_chosen,n=3,similarity=levenshteinDistance):
-
-	scores=[(similarity(prefs,tag_chosen,other),other) for other in unique_tags if other!=tag_chosen]
+    scores=[(similarity(prefs,tag_chosen,other),other) for other in unique_tags if other!=tag_chosen]
     return scores
 	
 #test 1 
