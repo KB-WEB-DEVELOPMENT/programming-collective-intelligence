@@ -11,8 +11,8 @@ def docprob(self,f,cat)
   denominator=len(categories(self))
 # total number of categories whose features count >  0 for that document
   categories_count=0
-    if f in self.fc and cat in self.fc[f]:
-	   categories_count+=1
-	numerator=categories_count
+    if f in self.fc and cat in self.fc[f]: 
+      categories_count+=1
+      numerator=categories_count
 	
   return float(numerator/denominator)
