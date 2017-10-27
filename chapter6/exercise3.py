@@ -6,7 +6,6 @@
 import poplib
 import getpass
 
-
 def getEmailMessages:
 
   email=[]
