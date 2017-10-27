@@ -23,7 +23,7 @@ class searchnet:
 		  self.con.execute(sqlquery)
 		  count +=1
 		
-		self.con.commit( )
+	    self.con.commit( )
 
          def getstrength(self,fromid,toid,layers,hiddenlayerstablename):
         
@@ -43,7 +43,7 @@ class searchnet:
 		if layer==0: table=hiddenlayerstablename
                 else: table='hiddenurl'
                 res=self.con.execute('select rowid from %s where fromid=%d and toid=%d' %
-                    (table,fromid,toid)).fetchone( )
+                    (table,fromid,toid)).fetchone()
                 if res==None:
                    self.con.execute('insert into %s (fromid,toid,strength) values (%d,%d,%f)' %
                   (table,fromid,toid,strength))
