@@ -25,29 +25,29 @@ class searchnet:
 		
 		self.con.commit( )
 
-      def getstrength(self,fromid,toid,layers,hiddenlayerstablename):
+         def getstrength(self,fromid,toid,layers,hiddenlayerstablename):
         
 		for layer in layers:
-		               #example: table="wordhidden55" or table="wordhidden1"
+		   #example: table="wordhidden55" or table="wordhidden1"
 		  if layer==0: table=hiddenlayerstablename		  
-          else: table='hiddenurl'
-            res=self.con.execute('select strength from %s where fromid=%d and toid=%d' %
-         (table,fromid,toid)).fetchone( )
-               if res==None:
+                  else: table='hiddenurl'
+                  res=self.con.execute('select strength from %s where fromid=%d and toid=%d' %
+                      (table,fromid,toid)).fetchone( )
+                  if res==None:
                     if layer==0: return -0.2
                     if layer==1: return 0
-               return res[0]
+                  return res[0]
 
 	  def setstrength(self,fromid,toid,layer,hiddenlayerstablename,strength):
-                     #example: table="wordhidden55" or table="wordhidden1"
+               #example: table="wordhidden55" or table="wordhidden1"
 		if layer==0: table=hiddenlayerstablename
-        else: table='hiddenurl'
-        res=self.con.execute('select rowid from %s where fromid=%d and toid=%d' %
-        (table,fromid,toid)).fetchone( )
-        if res==None:
-           self.con.execute('insert into %s (fromid,toid,strength) values (%d,%d,%f)' %
-        (table,fromid,toid,strength))
-        else:
-          rowid=res[0]
-          self.con.execute('update %s set strength=%f where rowid=%d' %
-       (table,strength,rowid))
+                else: table='hiddenurl'
+                res=self.con.execute('select rowid from %s where fromid=%d and toid=%d' %
+                    (table,fromid,toid)).fetchone( )
+                if res==None:
+                   self.con.execute('insert into %s (fromid,toid,strength) values (%d,%d,%f)' %
+                  (table,fromid,toid,strength))
+                else:
+                  rowid=res[0]
+                  self.con.execute('update %s set strength=%f where rowid=%d' %
+                     (table,strength,rowid))
