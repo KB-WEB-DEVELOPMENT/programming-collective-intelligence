@@ -29,12 +29,12 @@ def geneticoptimize(domain,costf,popsize=50,step=1,mutprod=0.2,elite=0.2,maxiter
    
        scores=[(costf(v),v) for v in pop]       
 	   
-	   if i % 10 == 0 and scores[i][i] > scores[0][0]:	   
-	     break   
+       if i % 10 == 0 and scores[i][i] > scores[0][0]:	   
+          break   
 	   
-	   else:
-	     scores.sort( )	   
-	     ranked=[v for (s,v) in scores]
+       else:
+	   scores.sort( )	   
+	   ranked=[v for (s,v) in scores]
 
        # Start with the pure winners
        pop=ranked[0:topelite]
@@ -42,7 +42,6 @@ def geneticoptimize(domain,costf,popsize=50,step=1,mutprod=0.2,elite=0.2,maxiter
        # Add mutated and bred forms of the winners
        while len(pop)<popsize:
          if random.random( )<mutprob:
-  
             # Mutation
             c=random.randint(0,topelite)
             pop.append(mutate(ranked[c]))
@@ -54,4 +53,4 @@ def geneticoptimize(domain,costf,popsize=50,step=1,mutprod=0.2,elite=0.2,maxiter
 	   
       # Print current best score
       print scores[0][0]
-return scores[0][1]
+   return scores[0][1]
