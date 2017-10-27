@@ -22,9 +22,9 @@ phoneNumber_pattern = re.compile('((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}')
 phoneNumbers=[s.lower( ) for s in splitter.split(entry['summary']) if len(s)>2 and len(s)<20]
 
 for i in range(len(phoneNumbers)):
-	phoneNumber=re.findall(phoneNumber_pattern,phoneNumbers[i])
-	
-	if phoneNumber == None: 
+   phoneNumber=re.findall(phoneNumber_pattern,phoneNumbers[i])	
+   
+   if phoneNumber == None: 
       pass
    else:
      f['PHONE NUMBER']= phoneNumber
