@@ -15,20 +15,20 @@ def schedulecost(sol):
     totalprice+=outbound[2]
     totalprice+=returnf[2]
     
-	outboundstartingminutes=time.strptime(outbound[0],'%M')
-	outboundarrivalminutes=time.strptime(outbound[1],'%M')
-	returnfstartingminutes=time.strptime(returnf[0],'%M')
-	returnfarrivalminutes=time.strptime(returnf[1],'%M')
+    outboundstartingminutes=time.strptime(outbound[0],'%M')
+    outboundarrivalminutes=time.strptime(outbound[1],'%M')
+    returnfstartingminutes=time.strptime(returnf[0],'%M')
+    returnfarrivalminutes=time.strptime(returnf[1],'%M')
 	
-	totalminutescost += 0.5*((outboundarrivalminutes-outboundstartingminutes) + (returnfarrivalminutes-returnfstartingminutes))
+    totalminutescost += 0.5*((outboundarrivalminutes-outboundstartingminutes) + (returnfarrivalminutes-returnfstartingminutes))
 		
-	airportarrivaloutboundhours = time.strptime(outbound[0],'%H')
-	airportarrivalreturnfhours = time.strptime(returnf[0],'%H')
+    airportarrivaloutboundhours = time.strptime(outbound[0],'%H')
+    airportarrivalreturnfhours = time.strptime(returnf[0],'%H')
 	
-	if int(airportarrivaloutboundhours)<8: pre8AMcost+=20	
-	if int(airportarrivalreturnfhours)<8: pre8AMcost+=20
+    if int(airportarrivaloutboundhours)<8: pre8AMcost+=20	
+    if int(airportarrivalreturnfhours)<8: pre8AMcost+=20
 	
-	# Track the latest arrival and earliest departure
+    # Track the latest arrival and earliest departure
     if latestarrival<getminutes(outbound[1]): latestarrival=getminutes(outbound[1])
     if earliestdep>getminutes(returnf[0]): earliestdep=getminutes(returnf[0])
     # Every person must wait at the airport until the latest person arrives.
