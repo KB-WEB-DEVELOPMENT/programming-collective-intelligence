@@ -15,8 +15,7 @@ def getUserposts(p1):
     tag=post['tag']  
     url=post['url']
     count=post['count']
-    
-	user_dict[p1][tag]=tag
+    user_dict[p1][tag]=tag
     user_dict[p1][tag][url]=url
     user_dict[p1][tag][url][count]=count
   
