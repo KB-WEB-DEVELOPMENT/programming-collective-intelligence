@@ -27,7 +27,7 @@ def getmatchrows(self,q):
        tablelist+='wordlocation w%d' % tablenumber
        clauselist+='(w%d.wordid=%d or' % (tablenumber,wordid)
        clauselist+='w%d.wordid=%d)' % (tablenumber-1,wordid+1)
-     tablenumber+=1
+       tablenumber+=1
 
 	 # Create the query from the separate parts
      fullquery='select %s from %s where %s' % (fieldlist,tablelist,clauselist)
