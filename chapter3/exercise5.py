@@ -34,12 +34,10 @@ def kcluster(rows,distance=pearson,k=4):
     avgs=[0.0]*len(rows[0])
     if len(bestmatches[i])>0:
      for rowid in bestmatches[i]:
-       for m in range(len(rows[rowid])):
-	   
+       for m in range(len(rows[rowid])):   
          #calculate the total distance bewteen each centroid and all of its items
-		 total_dist_centroid_and_items+=distance(clusters[i],rows[rowid][m])	   
-	   
-         avgs[m]+=rows[rowid][m]
+	total_dist_centroid_and_items+=distance(clusters[i],rows[rowid][m])	   	   
+        avgs[m]+=rows[rowid][m]
        for j in range(len(avgs)):
          avgs[j]/=len(bestmatches[i])
          clusters[i]=avgs
