@@ -26,5 +26,5 @@ blog, Wiki, or specialized application. This book explains:
 9. Non-negative matrix factorization to find the independent features in adataset
 10. Evolving intelligence for problem solving--how a computer develops its skill by improving its own code the more it plays a game
 
-Solution set available.
+Book problems - solution set available.
 
