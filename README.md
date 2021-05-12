@@ -1,15 +1,16 @@
 # programming-collective-intelligence
-BOOK: PROGRAMMING COLLECTIVE INTELLIGENCE - Building Smart Web 2.0 Applications
 
-AMAZON LINK:
+<b>BOOK: PROGRAMMING COLLECTIVE INTELLIGENCE - Building Smart Web 2.0 Applications</b>
+
+<b>AMAZON LINK:</b>
 
 https://www.amazon.com/Programming-Collective-Intelligence-Building-Applications/dp/0596529325#reader_0596529325
 
-The book can be read and downloaded here :
+<b>The book can be read and downloaded here :</b>
 
 https://www.dropbox.com/s/guvx4tvh5oczaal/Programming%20intelligence.pdf?dl=0
 
-SUMMARY:
+<b>SUMMARY:</b>
 
 Programming Collective Intelligence takes you into the world of machine learning and statistics, 
 and explains how to draw conclusions about user experience, marketing, personal tastes, and human
