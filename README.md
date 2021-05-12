@@ -1,11 +1,13 @@
 # programming-collective-intelligence
 BOOK: PROGRAMMING COLLECTIVE INTELLIGENCE - Building Smart Web 2.0 Applications
 
-AMAZON LINK: https://www.amazon.com/Programming-Collective-Intelligence-Building-Applications/dp/0596529325#reader_0596529325
+AMAZON LINK:
 
-ONLINE PDF LINK (AS OF 10.10.2017):
+https://www.amazon.com/Programming-Collective-Intelligence-Building-Applications/dp/0596529325#reader_0596529325
 
-https://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiD-6vssebWAhWIDxoKHZr-BHcQFggmMAA&url=http%3A%2F%2Fforum.myquant.cn%2Fuploads%2Fdefault%2Foriginal%2F1X%2F2065c4d1964e26331996cfa23d12acd185e3d7b6.pdf&usg=AOvVaw0OohRtz_96YyUSa7vA5aaY
+The book can be read and downloaded here :
+
+https://www.dropbox.com/s/guvx4tvh5oczaal/Programming%20intelligence.pdf?dl=0
 
 SUMMARY:
 
